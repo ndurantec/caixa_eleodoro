@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class FluxoController {
     
 
-@GetMapping(value = "")
-public void imprimir(){
-    System.out.println("Chegou até Fluxo Controller");
+@GetMapping(value = "/imprimir")
+public String imprimir(){
+    return "Chegou até Fluxo Controller";
 
 }
 }
