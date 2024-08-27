@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContaController {
 
 
-@GetMapping(value = "")
-public void imprimir(){
-    System.out.println("Chegou até Conta Controller");
+@GetMapping(value = "/imprimir")
+public String imprimir(){
+    return "Chegou até Conta Controller";
 
 }
 }
