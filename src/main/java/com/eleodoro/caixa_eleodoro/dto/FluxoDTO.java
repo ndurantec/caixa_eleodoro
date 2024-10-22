@@ -3,6 +3,7 @@ package com.eleodoro.caixa_eleodoro.dto;
 import java.time.LocalDateTime;
 
 import com.eleodoro.caixa_eleodoro.modelo.Conta;
+import com.eleodoro.caixa_eleodoro.modelo.Fluxo;
 import com.eleodoro.caixa_eleodoro.modelo.Operacao;
 
 public class FluxoDTO {
@@ -55,4 +56,9 @@ public class FluxoDTO {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public Fluxo novoFluxo() {
+        return new Fluxo(conta, data, operacao, valor, descricao);
+    }
+
 }

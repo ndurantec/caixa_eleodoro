@@ -1,5 +1,7 @@
 package com.eleodoro.caixa_eleodoro.dto;
 
+import com.eleodoro.caixa_eleodoro.modelo.Conta;
+
 public class ContaDTO {
 
     private String nome;
@@ -22,5 +24,9 @@ public class ContaDTO {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Conta novaConta() {
+        return new Conta(nome, descricao);
     }
 }

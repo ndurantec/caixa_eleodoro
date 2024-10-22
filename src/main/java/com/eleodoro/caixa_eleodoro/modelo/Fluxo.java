@@ -2,8 +2,20 @@ package com.eleodoro.caixa_eleodoro.modelo;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Fluxo {
-    
+
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 1L; 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private Conta conta;
     private LocalDateTime data;
     private Operacao operacao;
@@ -17,11 +29,20 @@ public class Fluxo {
         this.operacao = operacao;
         this.valor = valor;
         this.descricao = descricao;
-    }
-    public Conta getConta() {
-        return conta;
-    }
-    public void setConta(Conta conta) {
+        }
+        
+        public int getId() {
+            return id;
+        }
+        public void setId(int id) {
+            this.id = id;
+        }
+        
+        public Conta getConta() {
+            return conta;
+            }
+
+            public void setConta(Conta conta) {
         this.conta = conta;
     }
     public LocalDateTime getData() {

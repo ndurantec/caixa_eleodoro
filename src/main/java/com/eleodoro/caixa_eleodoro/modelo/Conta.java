@@ -1,20 +1,41 @@
 package com.eleodoro.caixa_eleodoro.modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Conta {
+
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 1L; 
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nome;
     private String descricao;
     
     
     public Conta() {
     }
-
-
+    
+    
     public Conta(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
+        }
+        
+    public int getId() {
+        return id;
     }
-
+    
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+        
 
     public String getNome() {
         return nome;
@@ -85,7 +106,5 @@ public class Conta {
             return false;
         return true;
     }
-
-    
     
 }
