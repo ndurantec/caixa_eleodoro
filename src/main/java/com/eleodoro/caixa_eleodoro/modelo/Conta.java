@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 @Entity
 public class Conta {
 
-    @SuppressWarnings("unused")
     private static final long serialVersionUID = 1L; 
     
     @Id

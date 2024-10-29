@@ -22,68 +22,67 @@ import com.eleodoro.caixa_eleodoro.repository.FluxoRepository;
 
     
 @RestController
-
 @CrossOrigin("*")
 @RequestMapping(value = "/fluxo")
 public class FluxoController {
 
 
-    @Autowired
-    private FluxoRepository fluxorepository;
+    // @Autowired
+    // private FluxoRepository fluxoRepository;
 
     
-    @GetMapping(value = "/imprimir")
-    public String imprimir(){
-        return "Chegou até Fluxo Controller";
-    }
+    // @GetMapping(value = "/imprimir")
+    // public String imprimir(){
+    //     return "Chegou até Fluxo Controller";
+    // }
 
 
-     @PostMapping(value = "/insert")
-    public ResponseEntity<Fluxo> insert(@RequestBody FluxoDTO fluxoDto){
-        Fluxo novoFluxo = fluxoDto.novoFluxo();
-        fluxorepository.save(novoFluxo);
+    //  @PostMapping(value = "/insert")
+    // public ResponseEntity<Fluxo> insert(@RequestBody FluxoDTO fluxoDto){
+    //     Fluxo novoFluxo = fluxoDto.novoFluxo();
+    //     fluxoRepository.save(novoFluxo);
 
-        System.out.println("Chegou no metodo insert");
-        System.out.println(fluxoDto.toString());
+    //     System.out.println("Chegou no metodo insert");
+    //     System.out.println(fluxoDto.toString());
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-        .path("{/id}")
-        .buildAndExpand(novoFluxo)
-        .toUri();
+    //     URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+    //     .path("{/id}")
+    //     .buildAndExpand(novoFluxo)
+    //     .toUri();
 
-        return ResponseEntity.created(uri).body(novoFluxo);
-    }
+    //     return ResponseEntity.created(uri).body(novoFluxo);
+    // }
     
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Fluxo> buscarPorid(@PathVariable Long id){
-        // return Contarepository.findByid(id).map(registro -> ResponseEntity.ok().body(registro))
-        // .orElse(ResponseEntity.notFound().build());
-        return null;
-    }
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Fluxo> update(@PathVariable Long id, @RequestBody FluxoDTO fluxoDto) {
+    // @GetMapping(value = "/{id}")
+    // public ResponseEntity<Fluxo> buscarPorid(@PathVariable Long id){
+    //     // return Contarepository.findByid(id).map(registro -> ResponseEntity.ok().body(registro))
+    //     // .orElse(ResponseEntity.notFound().build());
+    //     return null;
+    // }
+    // @PutMapping(value = "/{id}")
+    // public ResponseEntity<Fluxo> update(@PathVariable Long id, @RequestBody FluxoDTO fluxoDto) {
         
-        Optional<Fluxo> fluxoBanco = fluxorepository.findById(id);
+    //     Optional<Fluxo> fluxoBanco = fluxoRepository.findById(id);
 
-        Fluxo fluxoModificado = fluxoBanco.get();
+    //     Fluxo fluxoModificado = fluxoBanco.get();
 
-        fluxoModificado.setDescricao(fluxoDto.getDescricao());
-        fluxoModificado.setData(fluxoDto.getData());
-        fluxoModificado.setValor(fluxoDto.getValor());
+    //     fluxoModificado.setDescricao(fluxoDto.getDescricao());
+    //     fluxoModificado.setData(fluxoDto.getData());
+    //     fluxoModificado.setValor(fluxoDto.getValor());
 
-        fluxorepository.save(fluxoModificado);
+    //     fluxoRepository.save(fluxoModificado);
 
-        return ResponseEntity.ok().body(fluxoModificado);
-    }
+    //     return ResponseEntity.ok().body(fluxoModificado);
+    // }
 
-@DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (fluxorepository.existsById(id)) {
-            fluxorepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        } 
-        return ResponseEntity.notFound().build();       
-        }
+    // @DeleteMapping(value = "/{id}")
+    // public ResponseEntity<Void> delete(@PathVariable Long id) {
+    //     if (fluxoRepository.existsById(id)) {
+    //         fluxoRepository.deleteById(id);
+    //         return ResponseEntity.noContent().build();
+    //     } 
+    //     return ResponseEntity.notFound().build();       
+    //     }
 
-    }
+}
 
